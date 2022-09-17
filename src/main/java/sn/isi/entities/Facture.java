@@ -25,6 +25,8 @@ public class Facture implements Serializable{
 	@Column(nullable = false)
 	private double consoMensuelle;
 	@Column(nullable = false)
+	private double prixLitre ;
+	@Column(nullable = false)
 	private double sommeChiffre;
 	@Column(length = 200, nullable = false)
 	private String sommeLettre;
@@ -33,7 +35,7 @@ public class Facture implements Serializable{
 	@ManyToOne
 	private Client client;
 	
-	public Facture(int idFacture, double consoMensuelle, double sommeChiffre, String sommeLettre,
+	public Facture(int idFacture,double prixLitre, double consoMensuelle, double sommeChiffre, String sommeLettre,
 			GESTCOMMERCIALE gest_commerciale, Client client) {
 		super();
 		this.idFacture = idFacture;
@@ -42,7 +44,28 @@ public class Facture implements Serializable{
 		this.sommeLettre = sommeLettre;
 		this.gest_commerciale = gest_commerciale;
 		this.client = client;
+		this.prixLitre = prixLitre;
 	}
+	
+	
+
+	public Facture(double consoMensuelle, double prixLitre, double sommeChiffre, String sommeLettre, GESTCOMMERCIALE gest_commerciale,
+			Client client) {
+		super();
+		this.consoMensuelle = consoMensuelle;
+		this.sommeChiffre = sommeChiffre;
+		this.sommeLettre = sommeLettre;
+		this.gest_commerciale = gest_commerciale;
+		this.client = client;
+		this.prixLitre = prixLitre;
+	}
+	
+
+	public Facture() {
+		super();
+	}
+
+
 
 	public int getIdFacture() {
 		return idFacture;
@@ -91,6 +114,20 @@ public class Facture implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	
+	
+
+	public double getPrixLitre() {
+		return prixLitre;
+	}
+
+
+
+	public void setPrixLitre(double prixLitre) {
+		this.prixLitre = prixLitre;
+	}
+
+
 
 	@Override
 	public String toString() {

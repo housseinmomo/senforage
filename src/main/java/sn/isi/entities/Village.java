@@ -46,8 +46,6 @@ public class Village implements Serializable{
 		this.chefVillage = chefVillage;
 	}
 	
-	
-
 
 	public Village() {
 		super();

@@ -32,6 +32,21 @@ public class Compteur implements Serializable{
 		this.cumulConso = cumulConso;
 		this.client = client;
 	}
+	
+	
+
+	public Compteur(double cumulConso, Client client) {
+		super();
+		this.cumulConso = cumulConso;
+		this.client = client;
+	}
+	
+
+	public Compteur() {
+		super();
+	}
+
+
 
 	public int getIdCompteur() {
 		return idCompteur;

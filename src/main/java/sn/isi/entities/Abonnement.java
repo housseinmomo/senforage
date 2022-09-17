@@ -1,6 +1,7 @@
 package sn.isi.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Abonnement implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAbonnement;
 	@Column
-	private Date dateAbonnement;
+	private LocalDate dateAbonnement;
 	@Column(length = 255, nullable = false)
 	private String description;
 	@ManyToOne
@@ -36,15 +37,33 @@ public class Abonnement implements Serializable{
 	@OneToMany(mappedBy = "abonnement")
 	private List<Client> clients = new ArrayList<Client>();
 	
-	public Abonnement(int idAbonnement, Date dateAbonnement, String description, GESTCLIENTELE gest_client,
-			List<Client> clients) {
+	public Abonnement(int idAbonnement, LocalDate dateAbonnement, String description, GESTCLIENTELE gest_client) {
 		super();
 		this.idAbonnement = idAbonnement;
 		this.dateAbonnement = dateAbonnement;
 		this.description = description;
 		this.gest_client = gest_client;
-		this.clients = clients;
+		
 	}
+	
+	
+
+	public Abonnement(LocalDate dateAbonnement, String description, GESTCLIENTELE gest_client) {
+		super();
+		this.dateAbonnement = dateAbonnement;
+		this.description = description;
+		this.gest_client = gest_client;
+	}
+	
+	
+
+
+
+	public Abonnement() {
+		super();
+	}
+
+
 
 	public int getIdAbonnement() {
 		return idAbonnement;
@@ -54,11 +73,11 @@ public class Abonnement implements Serializable{
 		this.idAbonnement = idAbonnement;
 	}
 
-	public Date getDateAbonnement() {
+	public LocalDate getDateAbonnement() {
 		return dateAbonnement;
 	}
 
-	public void setDateAbonnement(Date dateAbonnement) {
+	public void setDateAbonnement(LocalDate dateAbonnement) {
 		this.dateAbonnement = dateAbonnement;
 	}
 

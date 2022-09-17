@@ -33,17 +33,25 @@ public class Roles implements Serializable{
 	@OneToMany(mappedBy = "role")
 	private List<GESTCOMPTEUR> gestCompteurs = new ArrayList<GESTCOMPTEUR>();
 	
-	public Roles(int idRole, String role, List<GESTCLIENTELE> gestClients, List<GESTCOMMERCIALE> gestCommerciales,
-			List<GESTCOMPTEUR> gestCompteurs) {
+	public Roles(int idRole, String role) {
 		super();
 		this.idRole = idRole;
 		this.role = role;
-		this.gestClients = gestClients;
-		this.gestCommerciales = gestCommerciales;
-		this.gestCompteurs = gestCompteurs;
 	}
 	
 	
+
+	public Roles(String role) {
+		super();
+		this.role = role;
+	}
+	
+	
+	public Roles() {
+		super();
+	}
+
+
 
 	public int getIdRole() {
 		return idRole;

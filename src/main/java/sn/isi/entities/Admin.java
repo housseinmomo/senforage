@@ -44,8 +44,8 @@ public class Admin implements Serializable{
 	private List<GESTCOMMERCIALE> gestCommerciales = new ArrayList<GESTCOMMERCIALE>();
 	@OneToMany(mappedBy = "admin")
 	private List<GESTCOMPTEUR> gestCompteurs = new ArrayList<GESTCOMPTEUR>();
-	public Admin(int idAdmin, String nom, String prenom, String email, String mdp, Boolean etat, Roles role,
-			List<GESTCLIENTELE> gestClients, List<GESTCOMMERCIALE> gestCommerciales, List<GESTCOMPTEUR> gestCompteurs) {
+	
+	public Admin(int idAdmin, String nom, String prenom, String email, String mdp, Boolean etat, Roles role) {
 		super();
 		this.idAdmin = idAdmin;
 		this.nom = nom;
@@ -54,10 +54,25 @@ public class Admin implements Serializable{
 		this.mdp = mdp;
 		this.etat = etat;
 		this.role = role;
-		this.gestClients = gestClients;
-		this.gestCommerciales = gestCommerciales;
-		this.gestCompteurs = gestCompteurs;
 	}
+	
+	
+	public Admin(String nom, String prenom, String email, String mdp, Boolean etat, Roles role) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mdp = mdp;
+		this.etat = etat;
+		this.role = role;
+	}
+	
+	
+	public Admin() {
+		super();
+	}
+
+
 	public int getIdAdmin() {
 		return idAdmin;
 	}

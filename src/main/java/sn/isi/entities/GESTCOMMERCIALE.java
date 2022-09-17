@@ -41,8 +41,9 @@ public class GESTCOMMERCIALE implements Serializable{
 	private Admin admin;
 	@OneToMany(mappedBy = "gest_commerciale")
 	private List<Facture> factures = new ArrayList<Facture>();
+	
 	public GESTCOMMERCIALE(int idGestCommerciale, String nom, String prenom, String email, String mdp, Boolean etat,
-			Roles role, Admin admin, List<Facture> factures) {
+			Roles role, Admin admin) {
 		super();
 		this.idGestCommerciale = idGestCommerciale;
 		this.nom = nom;
@@ -52,8 +53,30 @@ public class GESTCOMMERCIALE implements Serializable{
 		this.etat = etat;
 		this.role = role;
 		this.admin = admin;
-		this.factures = factures;
 	}
+	
+	
+	
+	
+	public GESTCOMMERCIALE(String nom, String prenom, String email, String mdp, Boolean etat, Roles role, Admin admin) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mdp = mdp;
+		this.etat = etat;
+		this.role = role;
+		this.admin = admin;
+	}
+	
+	
+	public GESTCOMMERCIALE() {
+		super();
+	}
+
+
+
+
 	public int getIdGestCommerciale() {
 		return idGestCommerciale;
 	}

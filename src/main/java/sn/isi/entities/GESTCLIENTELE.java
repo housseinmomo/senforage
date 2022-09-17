@@ -44,7 +44,7 @@ public class GESTCLIENTELE implements Serializable{
 	@OneToMany(mappedBy = "gest_client")
 	private List<Client> clients = new ArrayList<Client>();
 	public GESTCLIENTELE(int idGestClient, String nom, String prenom, String email, String mdp, Boolean etat,
-			Roles role, Admin admin, List<Abonnement> abonnements, List<Client> clients) {
+			Roles role, Admin admin) {
 		super();
 		this.idGestClient = idGestClient;
 		this.nom = nom;
@@ -54,9 +54,28 @@ public class GESTCLIENTELE implements Serializable{
 		this.etat = etat;
 		this.role = role;
 		this.admin = admin;
-		this.abonnements = abonnements;
-		this.clients = clients;
 	}
+	
+	
+	
+	public GESTCLIENTELE(String nom, String prenom, String email, String mdp, Boolean etat, Roles role, Admin admin) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mdp = mdp;
+		this.etat = etat;
+		this.role = role;
+		this.admin = admin;
+	}
+	
+	
+	public GESTCLIENTELE() {
+		super();
+	}
+
+
+
 	public int getIdGestClient() {
 		return idGestClient;
 	}

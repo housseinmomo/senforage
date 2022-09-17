@@ -41,8 +41,9 @@ public class Client implements Serializable{
 	private GESTCOMPTEUR gest_compteur;
 	@OneToMany(mappedBy = "client")
 	private List<Facture> factures = new ArrayList<Facture>();
+	
 	public Client(int idClient, String nomFamille, Village village, String adresse, int telephone,
-			GESTCLIENTELE gest_client, Abonnement abonnement, GESTCOMPTEUR gest_compteur, List<Facture> factures) {
+			GESTCLIENTELE gest_client, Abonnement abonnement, GESTCOMPTEUR gest_compteur) {
 		super();
 		this.idClient = idClient;
 		this.nomFamille = nomFamille;
@@ -52,8 +53,33 @@ public class Client implements Serializable{
 		this.gest_client = gest_client;
 		this.abonnement = abonnement;
 		this.gest_compteur = gest_compteur;
-		this.factures = factures;
 	}
+	
+	
+	
+	
+	public Client(String nomFamille, Village village, String adresse, int telephone, GESTCLIENTELE gest_client,
+			Abonnement abonnement, GESTCOMPTEUR gest_compteur) {
+		super();
+		this.nomFamille = nomFamille;
+		this.village = village;
+		this.adresse = adresse;
+		this.telephone = telephone;
+		this.gest_client = gest_client;
+		this.abonnement = abonnement;
+		this.gest_compteur = gest_compteur;
+	}
+
+
+
+
+	public Client() {
+		super();
+	}
+
+
+
+
 	public int getIdClient() {
 		return idClient;
 	}

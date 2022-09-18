@@ -88,16 +88,20 @@ public class testApp {
 		Client client4 = new Client("Ekobe", ethiopie, "KTM", 77983452, gestClient, abonnement3, gestCompteur);
 		
 		// Initialisation des Compteurs 
-		Compteur compteur1 = new Compteur(60, client1);
-		Compteur compteur2 = new Compteur(30, client2);
-		Compteur compteur3 = new Compteur(120, client3);
-		Compteur compteur4 = new Compteur(40, client4);
+		// true : compteur valide (en marche)
+		// false: compteur invalide (couper) 
+		Compteur compteur1 = new Compteur(60, client1, true);
+		Compteur compteur2 = new Compteur(30, client2, true);
+		Compteur compteur3 = new Compteur(120, client3, true);
+		Compteur compteur4 = new Compteur(40, client4, false);
 		
 		// Initialisation des factures 
-		Facture facture1 = new Facture(60 , 2, 120, "cent vingt mille", gestCommerciale, client1);
-		Facture facture2 = new Facture(30 , 3, 90, "quatre vingt dix mille", gestCommerciale, client2);
-		Facture facture3 = new Facture(120 , 2, 240, "deux cent quarante mille", gestCommerciale, client3);
-		Facture facture4 = new Facture(40 , 3, 120, "cent vingt mille", gestCommerciale, client4);
+		// true : payer 
+		// false : impayer 
+		Facture facture1 = new Facture(60 , 2, 120, "cent vingt mille", gestCommerciale, client1, true);
+		Facture facture2 = new Facture(30 , 3, 90, "quatre vingt dix mille", gestCommerciale, client2, true);
+		Facture facture3 = new Facture(120 , 2, 240, "deux cent quarante mille", gestCommerciale, client3, false);
+		Facture facture4 = new Facture(40 , 3, 120, "cent vingt mille", gestCommerciale, client4, false);
 		
 		// Enregistrement des roles dans la base de donnees 
 		daoRoles.create(ROLE_ADMIN);

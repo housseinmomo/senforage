@@ -23,22 +23,26 @@ public class Compteur implements Serializable{
 	private int idCompteur;
 	@Column
 	private double cumulConso;
+	@Column
+	private Boolean etatCompteur;
 	@OneToOne
 	private Client client;
 	
-	public Compteur(int idCompteur, double cumulConso, Client client) {
+	public Compteur(int idCompteur, double cumulConso, Client client, Boolean etatCompteur) {
 		super();
 		this.idCompteur = idCompteur;
 		this.cumulConso = cumulConso;
 		this.client = client;
+		this.etatCompteur = etatCompteur;
 	}
 	
 	
 
-	public Compteur(double cumulConso, Client client) {
+	public Compteur(double cumulConso, Client client , Boolean etatCompteur) {
 		super();
 		this.cumulConso = cumulConso;
 		this.client = client;
+		this.etatCompteur = etatCompteur;
 	}
 	
 

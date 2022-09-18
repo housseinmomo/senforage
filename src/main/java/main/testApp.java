@@ -1,5 +1,6 @@
 package main;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -75,11 +76,10 @@ public class testApp {
 				new GESTCOMMERCIALE("Houssein", "Kaire", "housskaire@gmail.com", "houss93", true, ROLE_GESCOMMERCIALE, admin);;
 		
 		// Initialisation des abonnements 
-				
-		LocalDate date = LocalDate.now(); // Recuperer la date et l'heure courante 		   
-		Abonnement abonnement1 = new Abonnement(date , "Abonnement niveau 01", gestClient);
-		Abonnement abonnement2 = new Abonnement(date , "Abonnement niveau 02", gestClient);
-		Abonnement abonnement3 = new Abonnement(date , "Abonnement niveau 03", gestClient);
+		Date date = new Date();
+		Abonnement abonnement1 = new Abonnement(date, "Abonnement niveau 01", gestClient);
+		Abonnement abonnement2 = new Abonnement(date, "Abonnement niveau 02", gestClient);
+		Abonnement abonnement3 = new Abonnement(date, "Abonnement niveau 03", gestClient);
 		
 		// Initialisations des clients 
 		Client client1 = new Client("Ekobe", djibouti, "CCO", 77157979, gestClient, abonnement1, gestCompteur);
@@ -139,6 +139,6 @@ public class testApp {
 		daoFacture.create(facture2);
 		daoFacture.create(facture3);
 		daoFacture.create(facture4);
-		
+			
 	}
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Abonnement implements Serializable{
@@ -29,7 +32,7 @@ public class Abonnement implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAbonnement;
 	@Column
-	private LocalDate dateAbonnement;
+	private java.util.Date dateAbonnement;
 	@Column(length = 255, nullable = false)
 	private String description;
 	@ManyToOne
@@ -37,22 +40,22 @@ public class Abonnement implements Serializable{
 	@OneToMany(mappedBy = "abonnement")
 	private List<Client> clients = new ArrayList<Client>();
 	
-	public Abonnement(int idAbonnement, LocalDate dateAbonnement, String description, GESTCLIENTELE gest_client) {
+	public Abonnement(int idAbonnement, Date dateAbonnement ,  String description, GESTCLIENTELE gest_client) {
 		super();
 		this.idAbonnement = idAbonnement;
-		this.dateAbonnement = dateAbonnement;
 		this.description = description;
 		this.gest_client = gest_client;
+		this.dateAbonnement = dateAbonnement;
 		
 	}
 	
 	
 
-	public Abonnement(LocalDate dateAbonnement, String description, GESTCLIENTELE gest_client) {
+	public Abonnement(Date dateAbonnement , String description, GESTCLIENTELE gest_client) {
 		super();
-		this.dateAbonnement = dateAbonnement;
 		this.description = description;
 		this.gest_client = gest_client;
+		this.dateAbonnement = dateAbonnement;
 	}
 	
 	
@@ -73,11 +76,11 @@ public class Abonnement implements Serializable{
 		this.idAbonnement = idAbonnement;
 	}
 
-	public LocalDate getDateAbonnement() {
+	public java.util.Date getDateAbonnement() {
 		return dateAbonnement;
 	}
 
-	public void setDateAbonnement(LocalDate dateAbonnement) {
+	public void setDateAbonnement(java.util.Date dateAbonnement) {
 		this.dateAbonnement = dateAbonnement;
 	}
 
